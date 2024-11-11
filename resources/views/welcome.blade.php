@@ -13,5 +13,12 @@
     
         <h3>Projeto Laravel 10x</h3>
 
+        <ul>
+            <li><a href="{{ route('course.index') }}" target="_self">Listar os cursos</a></li>
+            <li><a href="{{ route('course.show') }}" target="_self">Detalhes do curso</a></li>
+            <li><a href="{{ route('course.create') }}" target="_self">Cadastrar novo curso</a></li>
+            <li><a href="{{ route('course.edit') }}" target="_self">Editar o curso</a></li>
+        </ul>
+
     </body>
 </html>

@@ -14,6 +14,11 @@
     <div class="row">
         <div class="col-12 mt-3">
             <h4>Lista completa</h4>
+
+            <ul>
+                <li><a href="{{ route('course.show') }}" target="_self">Visualizar os detalhes do curso...</a></li>
+                <li><a href="{{ url('/') }}" target="_self">Voltar</a></li>
+            </ul>
         </div>
     </div>
 </div>
