@@ -26,10 +26,12 @@ class CourseController extends Controller
     /**
      * e79: Detalhes do curso selecionado.
      */
-    public function show()
+    public function show(Request $request)
     {
+        $course = Course::where('id', $request->courseId)->first();
         // dd('Show');
-        return view('courses.show');
+
+        return view('courses.show', ['course' => $course]);
     }
 
 
@@ -61,7 +63,7 @@ class CourseController extends Controller
         ]);
 
         // e79: Após fazer o insert, redireciona o usuário e imprime uma mensagem de sucesso na tela.
-        return redirect()->route('course.show')->with('success', 'Curso cadastrado com sucesso!');
+        return redirect()->route('course.show', ['courseId', $request->id])->with('success', 'Curso cadastrado com sucesso!');
     }
 
 

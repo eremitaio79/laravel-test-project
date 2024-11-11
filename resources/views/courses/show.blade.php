@@ -21,6 +21,13 @@
         <div class="row">
             <div class="col-12 mt-3">
                 <h4>Exibe os detalhes</h4>
+
+                {{-- {{ dd($course); }} --}}
+                ID: {{ $course->id }}<br />
+                Name: {{ $course->name }}<br />
+                Name: {{ $course->created_at }}<br />
+                Name: {{ $course->updated_at }}
+                <hr />
             </div>
         </div>
 
