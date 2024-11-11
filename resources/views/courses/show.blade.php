@@ -10,13 +10,20 @@
 
 <body>
 
-<div class="container">
-    <div class="row">
-        <div class="col-12 mt-3">
-            <h4>Exibe os detalhes</h4>
+    <div class="container">
+        <div class="row">
+
+            @if(session('success'))
+            <div class="alert alert-success p-2" role="alert">
+                {{ session('success') }}
+            </div>
+            @endif
+
+            <div class="col-12 mt-3">
+                <h4>Exibe os detalhes</h4>
+            </div>
         </div>
     </div>
-</div>
 
 
 

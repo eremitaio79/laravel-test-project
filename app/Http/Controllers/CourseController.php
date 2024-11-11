@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -41,10 +42,22 @@ class CourseController extends Controller
     /**
      * e79: Faz o insert do novo curso no banco de dados.
      */
-    public function store()
+    public function store(Request $request)
     {
-        // dd('Store');
+        // dd($request);
         // e79: Este método não possui view. Ele somente vai redirecionar após o insert.
+
+        // e79: odel::método_de_inserção(parâmetro_que_recebe_os_dados->todas_as_colunas_da_tabela());
+        // Course::create($request->all());
+
+        /* e79: Esta é a forma de recuperar somente os valores de colunas específicas. Neste exemplo,
+        somente a coluna name é utilizada. */
+        Course::create([
+            'name' => $request->name
+        ]);
+
+        // e79: Após fazer o insert, redireciona o usuário e imprime uma mensagem de sucesso na tela.
+        return redirect()->route('course.show')->with('success', 'Curso cadastrado com sucesso!');
     }
 
 

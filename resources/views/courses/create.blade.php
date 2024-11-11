@@ -16,6 +16,26 @@
             <h4>Cadastrar novo curso</h4>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-12 mt-3">
+            <form action="{{ route('course.store') }}" method="post">
+                @csrf
+                @method('POST')
+                
+                <div class="row">
+                    <div class="col-12">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" name="name" placeholder="Nome do curso" value="{{ old('name') }}" required />
+                    </div>
+
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
 
