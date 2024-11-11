@@ -10,18 +10,39 @@
 
 <body>
 
-<div class="container">
-    <div class="row">
-        <div class="col-12 mt-3">
-            <h4>Lista completa</h4>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mt-3">
+                <ul>
+                    <li><a href="{{ route('course.show') }}" target="_self">Visualizar os detalhes do curso...</a></li>
+                    <li><a href="{{ url('/') }}" target="_self">Voltar</a></li>
+                </ul>
+            </div>
+        </div>
 
-            <ul>
-                <li><a href="{{ route('course.show') }}" target="_self">Visualizar os detalhes do curso...</a></li>
-                <li><a href="{{ url('/') }}" target="_self">Voltar</a></li>
-            </ul>
+        <hr />
+
+        <div class="row">
+            <div class="col-12">
+                <h4>Lista completa</h4>
+                @forelse($courses as $course)
+                <p>
+                    Curso: <strong>{{ $course->name }}</strong><br />
+                    <span style="font-size: 12px;">
+                        {{-- Cadastrado em: {{ $course->created_at }}<br /> --}}
+                        Cadastrado em: {{ \Carbon\Carbon::parse($course->created_at)->tz('America/Belem')->format('d/m/Y H:i:s') }}<br />
+                        {{-- Atualizado em : {{ $course->updated_at }}<br /> --}}
+                        Atualizado em : {{ \Carbon\Carbon::parse($course->updated_at)->tz('America/Belem')->format('d/m/Y H:i:s') }}<br />
+                    </span>
+                </p>
+                @empty
+                <div class="alert alert-warning" role="alert">
+                    Nenhum curso encontrado.
+                </div>
+                @endforelse
+            </div>
         </div>
     </div>
-</div>
 
 
 
