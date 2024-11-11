@@ -21,7 +21,7 @@ Route::get('/', function () {
 // e79: My routes.
 // e79: Courses.
 Route::get('/index-course', [CourseController::class, 'index'])->name('course.index'); // e79: Index de cursos. Lista todos os cursos.
-Route::get('/show-course', [CourseController::class, 'show'])->name('course.show'); // e79: Página que apresenta os detalhes do curso selecionado.
+Route::get('/show-course/{courseId}', [CourseController::class, 'show'])->name('course.show'); // e79: Página que apresenta os detalhes do curso selecionado.
 Route::get('/create-course', [CourseController::class, 'create'])->name('course.create'); // e79: Página de form para inserção de novos cursos.
 Route::post('/store-course', [CourseController::class, 'store'])->name('course.store'); // e79: Insert do novo curso.
 Route::get('/edit-course', [CourseController::class, 'edit'])->name('course.edit'); // e79: Página de form para editar os dados do curso.

@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-12 mt-3">
                 <ul>
-                    <li><a href="{{ route('course.show') }}" target="_self">Visualizar os detalhes do curso...</a></li>
+                    {{-- <li><a href="{{ route('course.show') }}" target="_self">Visualizar os detalhes do curso...</a></li> --}}
                     <li><a href="{{ route('course.create') }}" target="_self">Cadastrar novo curso...</a></li>
                     <li><a href="{{ url('/') }}" target="_self">Voltar</a></li>
                 </ul>
@@ -28,6 +28,7 @@
                 <h4>Lista completa</h4>
                 @forelse($courses as $course)
                 <p>
+                    ID: <strong>{{ $course->id }}</strong><br />
                     Curso: <strong>{{ $course->name }}</strong><br />
                     <span style="font-size: 12px;">
                         {{-- Cadastrado em: {{ $course->created_at }}<br /> --}}
@@ -35,6 +36,7 @@
                         {{-- Atualizado em : {{ $course->updated_at }}<br /> --}}
                         Atualizado em : {{ \Carbon\Carbon::parse($course->updated_at)->tz('America/Belem')->format('d/m/Y H:i:s') }}<br />
                     </span>
+                    >>&nbsp;<a href="{{ route('course.show', ['courseId' => $course->id]) }}" target="_self">Detalhes deste curso...</a>
                 </p>
                 @empty
                 <div class="alert alert-warning" role="alert">
