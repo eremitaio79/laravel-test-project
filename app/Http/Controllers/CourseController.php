@@ -16,7 +16,7 @@ class CourseController extends Controller
         // dd('index course controller.');
 
         // Retrieve all records from course table.
-        $courses = Course::OrderByDesc('id')->paginate(10);
+        $courses = Course::OrderByDesc('id')->paginate(2);
 
 
         return view('courses.index', ['courses' => $courses]);
@@ -76,7 +76,7 @@ class CourseController extends Controller
 
 
     /**
-     * 
+     *
      */
     public function update()
     {

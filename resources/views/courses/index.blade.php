@@ -15,6 +15,7 @@
             <div class="col-12 mt-3">
                 <ul>
                     <li><a href="{{ route('course.show') }}" target="_self">Visualizar os detalhes do curso...</a></li>
+                    <li><a href="{{ route('course.create') }}" target="_self">Cadastrar novo curso...</a></li>
                     <li><a href="{{ url('/') }}" target="_self">Voltar</a></li>
                 </ul>
             </div>
@@ -40,6 +41,8 @@
                     Nenhum curso encontrado.
                 </div>
                 @endforelse
+
+                {{ $courses->links() }}
             </div>
         </div>
     </div>

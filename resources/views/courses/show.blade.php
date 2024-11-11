@@ -26,7 +26,8 @@
 
         <div class="row">
             <div class="col-12">
-                <a href="{{ route('course.index') }}" target="_self">Mostrar todos os registros</a>
+                <a href="{{ route('course.index') }}" target="_self">Mostrar todos os registros</a><br />
+                <a href="{{ url('/') }}" target="_self">Home</a><br />
             </div>
         </div>
     </div>
