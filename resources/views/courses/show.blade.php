@@ -25,9 +25,10 @@
 
                 {{-- {{ dd($course); }} --}}
                 ID: {{ $course->id }}<br />
-                Name: {{ $course->name }}<br />
-                Name: {{ $course->created_at }}<br />
-                Name: {{ $course->updated_at }}
+                Nome: <strong>{{ $course->name }}</strong><br />
+                Preço: <strong>R$ {{ number_format($course->price, 2, ',', '.') }}</strong><br />
+                Criado em: {{ $course->created_at }}<br />
+                Editado em: {{ $course->updated_at }}
                 <hr />
             </div>
         </div>

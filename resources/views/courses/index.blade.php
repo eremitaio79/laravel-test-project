@@ -37,6 +37,7 @@
                     <p>
                         ID: <strong>{{ $course->id }}</strong><br />
                         Curso: <strong>{{ $course->name }}</strong><br />
+                        Preço: <strong>R$ {{ number_format($course->price, 2, ',', '.') }}</strong><br />
                         <span style="font-size: 12px;">
                             {{-- Cadastrado em: {{ $course->created_at }}<br /> --}}
                             Cadastrado em:

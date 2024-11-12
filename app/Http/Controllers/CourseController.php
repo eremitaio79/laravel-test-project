@@ -52,7 +52,6 @@ class CourseController extends Controller
         return view('courses.create');
     }
 
-
     /**
      * e79: Faz o insert do novo curso no banco de dados.
      */
@@ -60,7 +59,8 @@ class CourseController extends Controller
     {
         // Cria o curso e armazena o modelo criado em uma variável
         $course = Course::create([
-            'name' => $request->name
+            'name' => $request->name,
+            'price' => $request->price
         ]);
 
         // Armazena os dados do curso na sessão para revisão
@@ -96,6 +96,7 @@ class CourseController extends Controller
 
         $course->update([
             'name' => $request->name,
+            'price' => $request->price
         ]);
 
         return redirect()->route('course.show', ['courseId' => $course->id])->with(

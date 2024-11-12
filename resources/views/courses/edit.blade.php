@@ -28,13 +28,21 @@
                     <input type="text" id="name" name="name" class="form-control"
                         value="{{ old('name', $courseId->name) }}" required />
 
+                    <label for="price" class="mt-3">Preço</label>
+                    <input type="text" id="price" name="price" class="form-control"
+                        value="{{ old('price', $courseId->price) }}" required />
+
                     <input type="hidden" id="id" name="id" value="{{ old('id', $courseId->id) }}" />
-                    <input type="hidden" id="create_at" name="create_at" value="{{ old('create_at', $courseId->created_at) }}" />
-                    <input type="hidden" id="updated_at" name="updated_at" value="{{ old('updated_at', $courseId->updated_at) }}" />
+                    <input type="hidden" id="create_at" name="create_at"
+                        value="{{ old('create_at', $courseId->created_at) }}" />
+                    <input type="hidden" id="updated_at" name="updated_at"
+                        value="{{ old('updated_at', $courseId->updated_at) }}" />
 
                     <div class="mt-3 text-end">
-                        <button type="submit" class="btn btn-primary btn-sm">&nbsp;&nbsp;&nbsp;Salvar&nbsp;&nbsp;&nbsp;</button>
-                        <a href="{{ route('course.index') }}" target="_self" type="button" class="btn btn-secondary btn-sm">Cancelar</a>
+                        <button type="submit"
+                            class="btn btn-primary btn-sm">&nbsp;&nbsp;&nbsp;Salvar&nbsp;&nbsp;&nbsp;</button>
+                        <a href="{{ route('course.index') }}" target="_self" type="button"
+                            class="btn btn-secondary btn-sm">Cancelar</a>
                     </div>
 
                 </form>
