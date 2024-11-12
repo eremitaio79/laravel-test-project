@@ -24,6 +24,6 @@ Route::get('/index-course', [CourseController::class, 'index'])->name('course.in
 Route::get('/show-course/{courseId}', [CourseController::class, 'show'])->name('course.show'); // e79: Página que apresenta os detalhes do curso selecionado.
 Route::get('/create-course', [CourseController::class, 'create'])->name('course.create'); // e79: Página de form para inserção de novos cursos.
 Route::post('/store-course', [CourseController::class, 'store'])->name('course.store'); // e79: Insert do novo curso.
-Route::get('/edit-course', [CourseController::class, 'edit'])->name('course.edit'); // e79: Página de form para editar os dados do curso.
-Route::put('update-course', [CourseController::class, 'update'])->name('course.update'); // e79: Update do curso selecionado.
-Route::delete('destroy-course', [CourseController::class, 'destroy'])->name('course.destroy'); // e79: Deleta o curso selecionado.
+Route::get('/edit-course/{courseId}', [CourseController::class, 'edit'])->name('course.edit'); // e79: Página de form para editar os dados do curso.
+Route::put('update-course/{courseId}', [CourseController::class, 'update'])->name('course.update'); // e79: Update do curso selecionado.
+Route::delete('destroy-course/{courseId}', [CourseController::class, 'destroy'])->name('course.destroy'); // e79: Deleta o curso selecionado.

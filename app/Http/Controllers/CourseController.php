@@ -74,28 +74,49 @@ class CourseController extends Controller
     /**
      * e79: Carrega o formulário de edição de cursos.
      */
-    public function edit()
+    public function edit(Request $request)
     {
-        // dd('Edit');
-        return view('courses.edit');
+        $course = Course::where('id', $request->courseId)->first();
+        // dd($course);
+
+        // return view('courses.edit', ['courseId' => $course]);
+        return view('courses.edit', ['courseId' => $course]);
     }
 
 
     /**
      *
      */
-    public function update()
+    public function update(Request $request, $id)
     {
-        // dd('Update');
+        // dd($request);
         // e79: Este método não possui view. Ele somente vai redirecionar após o update.
+        // Obtém o curso pelo ID
+        $course = Course::findOrFail($id);
+
+        $course->update([
+            'name' => $request->name,
+        ]);
+
+        return redirect()->route('course.show', ['courseId' => $course->id])->with(
+            'success',
+            'Curso editado com sucesso!'
+        );
     }
 
 
     /**
      * e79: Faz a exclusão do curso selecionado.
      */
-    public function destroy()
+    public function destroy(Request $request, $id)
     {
-        // dd('Delete');
+        // Busca o curso pelo ID, ou falha se não for encontrado
+        $course = Course::findOrFail($id);
+
+        // Exclui o curso
+        $course->delete();
+
+        // Redireciona para a lista de cursos com uma mensagem de sucesso
+        return redirect()->route('course.index')->with('success', 'Curso excluído com sucesso!');
     }
 }
