@@ -29,7 +29,15 @@ class CourseController extends Controller
     public function show(Request $request)
     {
         $course = Course::where('id', $request->courseId)->first();
-        // dd('Show');
+
+        /* // Verifica se há dados de depuração na sessão
+        $debugCourse = session('debug_course');
+
+        // Exibe os dados da sessão para revisão
+        if ($debugCourse) {
+            // Aqui você pode fazer um dd($debugCourse) para inspecionar
+            dd($debugCourse);
+        } */
 
         return view('courses.show', ['course' => $course]);
     }
@@ -50,20 +58,16 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
-        // e79: Este método não possui view. Ele somente vai redirecionar após o insert.
-
-        // e79: odel::método_de_inserção(parâmetro_que_recebe_os_dados->todas_as_colunas_da_tabela());
-        // Course::create($request->all());
-
-        /* e79: Esta é a forma de recuperar somente os valores de colunas específicas. Neste exemplo,
-        somente a coluna name é utilizada. */
-        Course::create([
+        // Cria o curso e armazena o modelo criado em uma variável
+        $course = Course::create([
             'name' => $request->name
         ]);
 
-        // e79: Após fazer o insert, redireciona o usuário e imprime uma mensagem de sucesso na tela.
-        return redirect()->route('course.show', ['courseId', $request->id])->with('success', 'Curso cadastrado com sucesso!');
+        // Armazena os dados do curso na sessão para revisão
+        session()->flash('debug_course', $course);
+
+        // Redireciona para a rota, usando o ID do curso recém-criado
+        return redirect()->route('course.show', ['courseId' => $course->id])->with('success', 'Curso cadastrado com sucesso!');
     }
 
 
