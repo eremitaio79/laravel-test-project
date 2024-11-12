@@ -22,15 +22,21 @@
             <form action="{{ route('course.store') }}" method="post">
                 @csrf
                 @method('POST')
-                
+
                 <div class="row">
                     <div class="col-12">
                         <label for="name">Nome</label>
-                        <input type="text" id="name" name="name" placeholder="Nome do curso" value="{{ old('name') }}" required />
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Nome do curso" value="{{ old('name') }}" required />
                     </div>
 
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    <div class="col-12 mt-3">
+                        <label for="price">Preço</label>
+                        <input type="text" id="price" name="price" class="form-control" placeholder="Preço do curso" value="{{ old('price') }}" required />
+                    </div>
+
+                    <div class="col-12 mt-3 text-end">
+                        <button type="submit" class="btn btn-primary btn-sm">&nbsp;&nbsp;&nbsp;Salvar&nbsp;&nbsp;&nbsp;</button>
+                        <a href="{{ url('/') }}" type="button" class="btn btn-secondary btn-sm">Cancelar</a>
                     </div>
                 </div>
             </form>
